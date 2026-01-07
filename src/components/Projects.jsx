@@ -46,10 +46,16 @@ const Projects = () => {
     return (
         <section id="projects" className="section" style={{ overflow: 'hidden' }}>
             <div className="container">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-                    <h2 className="animate-fade-in" style={{ margin: 0 }}>Featured Projects</h2>
-                    {/* Counter for Desktop */}
-                    <div className="hidden-mobile" style={{ fontSize: '1.2rem', fontFamily: 'var(--font-mono)', color: 'var(--color-primary)' }}>
+                <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '3rem' }}>
+                    <h2 className="animate-fade-in" style={{ margin: 0, textAlign: 'center' }}>Featured Projects</h2>
+                    {/* Counter for Desktop - Absolutely positioned right */}
+                    <div className="hidden-mobile" style={{
+                        position: 'absolute',
+                        right: 0,
+                        fontSize: '1.2rem',
+                        fontFamily: 'var(--font-mono)',
+                        color: 'var(--color-primary)'
+                    }}>
                         0{activeIndex + 1} / 0{projects.length}
                     </div>
                 </div>
