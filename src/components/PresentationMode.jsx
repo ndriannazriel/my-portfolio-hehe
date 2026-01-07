@@ -211,7 +211,7 @@ const PresentationMode = ({ onClose }) => {
                                     </div>
                                     <div style={{
                                         position: 'relative',
-                                        height: '220px',
+                                        height: '500px',
                                         borderRadius: '0.75rem',
                                         overflow: 'hidden',
                                         background: '#111',

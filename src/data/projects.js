@@ -17,6 +17,11 @@ import adImage from '../assets/AD.jpg';
 import mindsdbImage from '../assets/mindsdb_Logo.jpg';
 import n8nImage from '../assets/6889d23f942270565468d8a1_n8n logo.jpg';
 import dashboardImage from '../assets/dashboard.png';
+import forceheroImage1 from '../assets/forcehero/forcehero1.jpg';
+import forceheroImage2 from '../assets/forcehero/forcehero2.jpg';
+import forceheroImage3 from '../assets/forcehero/forcehero3.jpg';
+import forceheroImage4 from '../assets/forcehero/forcehero4.jpg';
+import forceheroImage5 from '../assets/forcehero/forcehero5.jpg';
 
 export const projects = [
   {
@@ -182,7 +187,7 @@ export const projects = [
     challenge: "Keeping everything in check.",
     solution: "MultiTasking = Answer",
     tech: ["Police Force Management", "Solution Architecture", "Client Engagement"],
-    gallery: [dashboardImage, antImage, adImage] // Placeholder images - replace with your actual engagement photos
+    gallery: [forceheroImage1, forceheroImage2, forceheroImage3, forceheroImage4, forceheroImage5] // Placeholder images - replace with your actual engagement photos
   }
 ];
 
