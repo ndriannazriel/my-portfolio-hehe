@@ -55,142 +55,146 @@ const Projects = () => {
                 </div>
 
                 {/* Carousel Container */}
-                <div style={{ position: 'relative', width: '100%', maxWidth: '900px', margin: '0 auto', overflow: 'hidden' }}>
+                <div style={{ position: 'relative', width: '100%', maxWidth: '800px', margin: '0 auto' }}>
 
-                    {/* Slides Track */}
-                    <div
-                        onTouchStart={onTouchStart}
-                        onTouchMove={onTouchMove}
-                        onTouchEnd={onTouchEnd}
-                        style={{
-                            display: 'flex',
-                            width: '100%', // Ensure track takes full width
-                            transform: `translateX(-${activeIndex * 100}%)`,
-                            transition: 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)',
-                            cursor: 'grab'
-                        }}
-                    >
-                        {projects.map((project) => (
-                            <div
-                                key={project.id}
-                                style={{
-                                    minWidth: '100%',
-                                    width: '100%', // Explicitly force 100% width
-                                    padding: '0 10px',
-                                    boxSizing: 'border-box',
-                                    flexShrink: 0, // Prevent shrinking
-                                    opacity: 1,
-                                }}
-                            >
-                                <div className="glass-panel" style={{
-                                    overflow: 'hidden',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    height: '100%', // Ensure consistent height
-                                    minHeight: '500px'
-                                }}>
-                                    {/* Image Section */}
-                                    <div style={{ height: '300px', overflow: 'hidden', position: 'relative' }}>
-                                        <div style={{
-                                            position: 'absolute',
-                                            top: 0,
-                                            left: 0,
-                                            width: '100%',
-                                            height: '100%',
-                                            background: `url(${project.image})`,
-                                            backgroundSize: 'cover',
-                                            backgroundPosition: 'center',
-                                            transition: 'transform 0.5s ease'
-                                        }}
-                                        />
-                                        <div style={{
-                                            position: 'absolute',
-                                            top: 0,
-                                            left: 0,
-                                            width: '100%',
-                                            height: '100%',
-                                            background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%)'
-                                        }} />
-                                    </div>
-
-                                    {/* Content Section */}
-                                    <div style={{ padding: '2.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1.5rem' }}>
-                                            <div>
-                                                <div style={{
-                                                    color: 'var(--color-primary)',
-                                                    marginBottom: '0.5rem',
-                                                    fontSize: '0.9rem',
-                                                    fontWeight: 'bold',
-                                                    letterSpacing: '1px',
-                                                    textTransform: 'uppercase'
-                                                }}>
-                                                    {project.category}
-                                                </div>
-                                                <h3 style={{ fontSize: '2rem', marginBottom: '0' }}>{project.title}</h3>
-                                            </div>
-                                            <div style={{ display: 'flex', gap: '1rem' }}>
-                                                {project.githubUrl && (
-                                                    <a
-                                                        href={project.githubUrl}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        style={{
-                                                            padding: '0.8rem',
-                                                            borderRadius: '50%',
-                                                            background: 'rgba(255,255,255,0.1)',
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            justifyContent: 'center',
-                                                            transition: 'background 0.3s'
-                                                        }}
-                                                        onMouseOver={(e) => e.target.style.background = 'rgba(255,255,255,0.2)'}
-                                                        onMouseOut={(e) => e.target.style.background = 'rgba(255,255,255,0.1)'}
-                                                    >
-                                                        <Github size={20} />
-                                                    </a>
-                                                )}
-                                            </div>
+                    {/* Viewport for clipping */}
+                    <div style={{ overflow: 'hidden', width: '100%' }}>
+                        {/* Slides Track */}
+                        <div
+                            onTouchStart={onTouchStart}
+                            onTouchMove={onTouchMove}
+                            onTouchEnd={onTouchEnd}
+                            style={{
+                                display: 'flex',
+                                width: '100%',
+                                transform: `translateX(-${activeIndex * 100}%)`,
+                                transition: 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)',
+                                cursor: 'grab'
+                            }}
+                        >
+                            {projects.map((project) => (
+                                <div
+                                    key={project.id}
+                                    style={{
+                                        minWidth: '100%',
+                                        width: '100%',
+                                        padding: '0 10px',
+                                        boxSizing: 'border-box',
+                                        flexShrink: 0,
+                                        opacity: 1,
+                                    }}
+                                >
+                                    <div className="glass-panel" style={{
+                                        overflow: 'hidden',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        height: '100%',
+                                        minHeight: '500px'
+                                    }}>
+                                        {/* Image Section */}
+                                        <div style={{ height: '300px', overflow: 'hidden', position: 'relative' }}>
+                                            <div style={{
+                                                position: 'absolute',
+                                                top: 0,
+                                                left: 0,
+                                                width: '100%',
+                                                height: '100%',
+                                                background: `url(${project.image})`,
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: 'center',
+                                                transition: 'transform 0.5s ease'
+                                            }}
+                                            />
+                                            <div style={{
+                                                position: 'absolute',
+                                                top: 0,
+                                                left: 0,
+                                                width: '100%',
+                                                height: '100%',
+                                                background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%)'
+                                            }} />
                                         </div>
 
-                                        <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', marginBottom: '2rem', lineHeight: '1.7' }}>
-                                            {project.description}
-                                        </p>
-
-                                        <div style={{ marginTop: 'auto' }}>
-                                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-                                                {project.tech.map(t => (
-                                                    <span key={t} style={{
-                                                        fontSize: '0.85rem',
-                                                        background: 'rgba(59, 130, 246, 0.1)',
-                                                        color: '#60a5fa',
-                                                        padding: '0.4rem 1rem',
-                                                        borderRadius: '50px',
-                                                        border: '1px solid rgba(59, 130, 246, 0.2)'
+                                        {/* Content Section */}
+                                        <div style={{ padding: '2.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1.5rem' }}>
+                                                <div>
+                                                    <div style={{
+                                                        color: 'var(--color-primary)',
+                                                        marginBottom: '0.5rem',
+                                                        fontSize: '0.9rem',
+                                                        fontWeight: 'bold',
+                                                        letterSpacing: '1px',
+                                                        textTransform: 'uppercase'
                                                     }}>
-                                                        {t}
-                                                    </span>
-                                                ))}
+                                                        {project.category}
+                                                    </div>
+                                                    <h3 style={{ fontSize: '2rem', marginBottom: '0' }}>{project.title}</h3>
+                                                </div>
+                                                <div style={{ display: 'flex', gap: '1rem' }}>
+                                                    {project.githubUrl && (
+                                                        <a
+                                                            href={project.githubUrl}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            style={{
+                                                                padding: '0.8rem',
+                                                                borderRadius: '50%',
+                                                                background: 'rgba(255,255,255,0.1)',
+                                                                display: 'flex',
+                                                                alignItems: 'center',
+                                                                justifyContent: 'center',
+                                                                transition: 'background 0.3s'
+                                                            }}
+                                                            onMouseOver={(e) => e.target.style.background = 'rgba(255,255,255,0.2)'}
+                                                            onMouseOut={(e) => e.target.style.background = 'rgba(255,255,255,0.1)'}
+                                                        >
+                                                            <Github size={20} />
+                                                        </a>
+                                                    )}
+                                                </div>
+                                            </div>
+
+                                            <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', marginBottom: '2rem', lineHeight: '1.7' }}>
+                                                {project.description}
+                                            </p>
+
+                                            <div style={{ marginTop: 'auto' }}>
+                                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
+                                                    {project.tech.map(t => (
+                                                        <span key={t} style={{
+                                                            fontSize: '0.85rem',
+                                                            background: 'rgba(59, 130, 246, 0.1)',
+                                                            color: '#60a5fa',
+                                                            padding: '0.4rem 1rem',
+                                                            borderRadius: '50px',
+                                                            border: '1px solid rgba(59, 130, 246, 0.2)'
+                                                        }}>
+                                                            {t}
+                                                        </span>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
 
-                    {/* Navigation Arrows (Visible on all devices now) */}
+                    {/* Navigation Arrows (Outside) */}
                     <button
                         onClick={prevSlide}
+                        className="nav-arrow"
                         style={{
                             position: 'absolute',
-                            left: '10px',
+                            left: '-60px',
                             top: '50%',
                             transform: 'translateY(-50%)',
-                            background: 'rgba(0,0,0,0.5)', // Semi-transparent background
+                            background: 'rgba(255,255,255,0.05)',
                             borderRadius: '50%',
-                            width: '40px',
-                            height: '40px',
+                            width: '48px',
+                            height: '48px',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -200,23 +204,24 @@ const Projects = () => {
                             zIndex: 10,
                             transition: 'all 0.2s'
                         }}
-                        onMouseOver={(e) => e.target.style.background = 'rgba(0,0,0,0.8)'}
-                        onMouseOut={(e) => e.target.style.background = 'rgba(0,0,0,0.5)'}
+                        onMouseOver={(e) => e.target.style.background = 'rgba(255,255,255,0.1)'}
+                        onMouseOut={(e) => e.target.style.background = 'rgba(255,255,255,0.05)'}
                     >
-                        <ChevronLeft size={24} />
+                        <ChevronLeft size={28} />
                     </button>
 
                     <button
                         onClick={nextSlide}
+                        className="nav-arrow"
                         style={{
                             position: 'absolute',
-                            right: '10px',
+                            right: '-60px',
                             top: '50%',
                             transform: 'translateY(-50%)',
-                            background: 'rgba(0,0,0,0.5)',
+                            background: 'rgba(255,255,255,0.05)',
                             borderRadius: '50%',
-                            width: '40px',
-                            height: '40px',
+                            width: '48px',
+                            height: '48px',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -226,10 +231,10 @@ const Projects = () => {
                             zIndex: 10,
                             transition: 'all 0.2s'
                         }}
-                        onMouseOver={(e) => e.target.style.background = 'rgba(0,0,0,0.8)'}
-                        onMouseOut={(e) => e.target.style.background = 'rgba(0,0,0,0.5)'}
+                        onMouseOver={(e) => e.target.style.background = 'rgba(255,255,255,0.1)'}
+                        onMouseOut={(e) => e.target.style.background = 'rgba(255,255,255,0.05)'}
                     >
-                        <ChevronRight size={24} />
+                        <ChevronRight size={28} />
                     </button>
 
                 </div>
@@ -255,9 +260,12 @@ const Projects = () => {
                 </div>
             </div>
 
-            {/* Mobile Styles Injection (since we are not using css modules) */}
+            {/* Styles Injection */}
             <style>{`
-                @media (max-width: 768px) {
+                @media (max-width: 900px) {
+                    .nav-arrow {
+                        display: none !important; /* Hide arrows on smaller screens where they won't fit */
+                    }
                     .hidden-mobile {
                         display: none;
                     }
