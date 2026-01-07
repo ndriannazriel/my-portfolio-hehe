@@ -163,6 +163,26 @@ export const projects = [
     solution: "Built real-time dashboard with automated data pipeline that aggregates and visualizes key performance indicators",
     // Live Demo (optional)
     demoUrl: ""
+  },
+  {
+    id: 7,
+    title: "ForceHero",
+    description: "Auxiallary Police Force Management System. Engaging with clients to understand their needs and provide tailored solutions based on the current system that agencies have.",
+    category: "Technical Account Manager",
+    icon: FileText,
+    image: dashboardImage,
+    // Business Impact
+    impact: {
+      "Data Visibility": "Real-time",
+      "Decision Speed": "3x faster",
+      "Users": "50+ daily"
+    },
+    // Technical Architecture
+    // Challenge & Solution
+    challenge: "Keeping everything in check.",
+    solution: "MultiTasking = Answer",
+    tech: ["Police Force Management", "Solution Architecture", "Client Engagement"],
+    gallery: [dashboardImage, antImage, adImage] // Placeholder images - replace with your actual engagement photos
   }
 ];
 

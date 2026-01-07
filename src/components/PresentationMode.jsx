@@ -6,11 +6,12 @@ import { projects } from '../data/projects';
 const PresentationMode = ({ onClose }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
+    const [galleryIndex, setGalleryIndex] = useState(0);
 
     // Extend slides to include an Intro and Outro slide
     // FILTER: Only show specific projects for the presentation (IDs: 1, 2, 5)
     // You can add or remove IDs from this list [1, 2, 5] to control what shows up.
-    const selectedProjectIds = [4, 5, 6];
+    const selectedProjectIds = [4, 5, 7, 6];
     const presentationProjects = projects.filter(p => selectedProjectIds.includes(p.id));
 
     const slides = [
@@ -51,6 +52,20 @@ const PresentationMode = ({ onClose }) => {
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [currentIndex, isTransitioning]);
+
+    // Gallery auto-cycling for engagement photos
+    useEffect(() => {
+        setGalleryIndex(0);
+    }, [currentIndex]);
+
+    useEffect(() => {
+        if (currentSlide?.gallery?.length > 1) {
+            const interval = setInterval(() => {
+                setGalleryIndex(prev => (prev + 1) % currentSlide.gallery.length);
+            }, 3000);
+            return () => clearInterval(interval);
+        }
+    }, [currentSlide]);
 
     return (
         <div className="fixed inset-0 z-50 bg-black text-white flex flex-col overflow-hidden animate-fade-in"
@@ -188,6 +203,43 @@ const PresentationMode = ({ onClose }) => {
                                 </div>
                             )}
 
+                            {/* Activity/Engagement Gallery (Requested for Right Side) */}
+                            {currentSlide.gallery && currentSlide.gallery.length > 0 && (
+                                <div>
+                                    <div style={{ fontSize: '0.7rem', fontFamily: 'monospace', color: '#60a5fa', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                                        📸 Engagement Gallery
+                                    </div>
+                                    <div style={{
+                                        position: 'relative',
+                                        height: '220px',
+                                        borderRadius: '0.75rem',
+                                        overflow: 'hidden',
+                                        background: '#111',
+                                        border: '1px solid rgba(255,255,255,0.1)'
+                                    }}>
+                                        {currentSlide.gallery.map((img, index) => (
+                                            <img
+                                                key={index}
+                                                src={img}
+                                                alt={`Engagement ${index}`}
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: 0,
+                                                    left: 0,
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover',
+                                                    opacity: index === galleryIndex ? 1 : 0,
+                                                    transition: 'opacity 0.8s ease-in-out'
+                                                }}
+                                            />
+                                        ))}
+                                        {/* Indicator Line */}
+                                        <div style={{ position: 'absolute', bottom: 0, left: 0, height: '3px', background: '#3b82f6', width: `${((galleryIndex + 1) / currentSlide.gallery.length) * 100}%`, transition: 'width 0.3s ease' }}></div>
+                                    </div>
+                                </div>
+                            )}
+
                             {/* Divider */}
                             <div style={{ height: '1px', background: 'rgba(255,255,255,0.1)' }}></div>
 
@@ -197,7 +249,7 @@ const PresentationMode = ({ onClose }) => {
                                     Tech Stack
                                 </div>
                                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                                    {currentSlide.tech.map(t => (
+                                    {currentSlide.tech?.map(t => (
                                         <span key={t} style={{
                                             padding: '0.35rem 0.75rem',
                                             borderRadius: '9999px',
