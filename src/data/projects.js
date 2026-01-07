@@ -77,7 +77,7 @@ export const projects = [
     id: 4,
     title: "TH Mind",
     description: "RAG Agent with chatbot via telegram",
-    tech: ["n8n", "Workflow Automation", "Chart Gen", "RAG Agent", "AI"],
+    tech: ["n8n", "Workflow Automation", "Chart Generation", "RAG Agent", "AI"],
     category: "Automation",
     icon: FileText,
     image: n8nImage,
@@ -89,9 +89,9 @@ export const projects = [
     },
     // Business Impact
     impact: {
-      "Response Time": "< 2 seconds",
-      "Accuracy": "95%",
-      "Queries Handled": "1000+/day"
+      "GUI": "Telegram Bot",
+      "Accuracy": "Not measured",
+      "Covers": "Company Data"
     },
     // Technical Architecture
     architecture: {
@@ -115,28 +115,22 @@ export const projects = [
     icon: FileText,
     image: n8nImage,
     githubUrl: "https://github.com/ndriannazriel/Billing-Automation",
-    stats: {
-      "Automation": "N8N",
-      "Focus": "Billing",
-      "Client Portal": "Pabbly",
-      "invoice & Payment": "Bukku"
-    },
     // Business Impact
     impact: {
-      "Time Saved": "15 hrs/week",
-      "Error Reduction": "98%",
-      "Invoices Processed": "500+/month"
+      "Automation": "N8N",
+      "Client Portal": "Pabbly",
+      "invoice & Payment": "Bukku"
     },
     // Technical Architecture
     architecture: {
       "Workflow Engine": "n8n",
-      "Subscription Platform": "Pabbly",
+      "Subscription Platform": "Pabbly Subscription API",
       "Accounting System": "Bukku API",
       "Trigger": "Webhook"
     },
     // Challenge & Solution
-    challenge: "Manual invoice creation was time-consuming and error-prone, causing billing delays",
-    solution: "Automated end-to-end billing workflow that creates and sends invoices instantly upon subscription events",
+    challenge: "Enable Customer's don't have their client portal for the subscriptions on Trackerhero's Product Plans.",
+    solution: "Automated end-to-end billing workflow that creates and sends invoices instantly upon subscription events.",
     // Live Demo (optional)
     demoUrl: ""
   },
@@ -156,20 +150,24 @@ export const projects = [
     },
     // Business Impact
     impact: {
-      "Data Visibility": "Real-time",
-      "Decision Speed": "3x faster",
-      "Users": "50+ daily"
+      "Data Visibility": "Centralized Monitoring",
+      "Update Interval": "Every 10 minutes",
+      "Users": "HoDs and Upper Management"
     },
     // Technical Architecture
     architecture: {
-      "Frontend": "Next.js + React",
+      "Framework": "Next.js + React",
       "Backend": "Supabase",
       "Data Pipeline": "n8n",
-      "UI Components": "Shadcn UI"
+      "UI Components": "Shadcn UI + Recharts"
     },
-    // Challenge & Solution
-    challenge: "Team lacked centralized performance metrics, making data-driven decisions difficult",
-    solution: "Built real-time dashboard with automated data pipeline that aggregates and visualizes key performance indicators",
+    challenge: [
+      "Team lacked centralized performance metrics, making data-driven decisions difficult",
+      "Data was scattered across different sources, making it hard to track progress",
+      "Data inconsisteny made it hard to track current state of company",
+      "Data Cleaning was extremely tough because of inconsistent structure of each department's data"
+    ],
+    solution: "Built performance dashboard with automated data pipeline that aggregates and visualizes key performance indicators",
     // Live Demo (optional)
     demoUrl: ""
   },
@@ -184,7 +182,10 @@ export const projects = [
     impact: ["Auxillary Police Force Management", "Technical Demonstrations (Pilot Phase)", "Client Engagement"],
     // Technical Architecture
     // Challenge & Solution
-    challenge: "Keeping everything in check.",
+    challenge: [
+      "Meeting with Clients",
+      "Takes up a lot of time"
+    ],
     solution: "MultiTasking = Answer",
     gallery: [forceheroImage1, forceheroImage2, forceheroImage3, forceheroImage4, forceheroImage5] // Placeholder images - replace with your actual engagement photos
   },
