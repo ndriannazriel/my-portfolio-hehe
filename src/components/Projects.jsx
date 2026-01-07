@@ -128,7 +128,8 @@ const Projects = () => {
                                                 left: 0,
                                                 width: '100%',
                                                 height: '100%',
-                                                background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%)'
+                                                background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%)',
+                                                pointerEvents: 'none' // Allow hover to pass through to image
                                             }} />
                                         </div>
 
