@@ -97,16 +97,7 @@ const Projects = () => {
                                             display: 'flex',
                                             flexDirection: 'column',
                                             height: '100%',
-                                            minHeight: '500px',
-                                            transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-                                        }}
-                                        onMouseOver={(e) => {
-                                            e.currentTarget.style.transform = 'translateY(-5px)';
-                                            e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(0,0,0,0.5)';
-                                        }}
-                                        onMouseOut={(e) => {
-                                            e.currentTarget.style.transform = 'translateY(0)';
-                                            e.currentTarget.style.boxShadow = 'none';
+                                            minHeight: '500px'
                                         }}
                                     >
                                         {/* Image Section */}
