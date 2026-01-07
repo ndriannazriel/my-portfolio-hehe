@@ -179,47 +179,57 @@ const Projects = () => {
                         ))}
                     </div>
 
-                    {/* Navigation Arrows (Desktop) */}
+                    {/* Navigation Arrows (Visible on all devices now) */}
                     <button
                         onClick={prevSlide}
                         style={{
                             position: 'absolute',
-                            left: '-60px',
+                            left: '10px',
                             top: '50%',
                             transform: 'translateY(-50%)',
-                            background: 'transparent',
-                            border: 'none',
+                            background: 'rgba(0,0,0,0.5)', // Semi-transparent background
+                            borderRadius: '50%',
+                            width: '40px',
+                            height: '40px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            border: '1px solid rgba(255,255,255,0.1)',
                             color: 'white',
                             cursor: 'pointer',
-                            opacity: 0.5,
-                            transition: 'opacity 0.2s'
+                            zIndex: 10,
+                            transition: 'all 0.2s'
                         }}
-                        onMouseOver={(e) => e.target.style.opacity = 1}
-                        onMouseOut={(e) => e.target.style.opacity = 0.5}
-                        className="hidden-mobile-nav"
+                        onMouseOver={(e) => e.target.style.background = 'rgba(0,0,0,0.8)'}
+                        onMouseOut={(e) => e.target.style.background = 'rgba(0,0,0,0.5)'}
                     >
-                        <ChevronLeft size={48} />
+                        <ChevronLeft size={24} />
                     </button>
 
                     <button
                         onClick={nextSlide}
                         style={{
                             position: 'absolute',
-                            right: '-60px',
+                            right: '10px',
                             top: '50%',
                             transform: 'translateY(-50%)',
-                            background: 'transparent',
-                            border: 'none',
+                            background: 'rgba(0,0,0,0.5)',
+                            borderRadius: '50%',
+                            width: '40px',
+                            height: '40px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            border: '1px solid rgba(255,255,255,0.1)',
                             color: 'white',
                             cursor: 'pointer',
-                            opacity: 0.5,
-                            transition: 'opacity 0.2s'
+                            zIndex: 10,
+                            transition: 'all 0.2s'
                         }}
-                        onMouseOver={(e) => e.target.style.opacity = 1}
-                        onMouseOut={(e) => e.target.style.opacity = 0.5}
-                        className="hidden-mobile-nav"
+                        onMouseOver={(e) => e.target.style.background = 'rgba(0,0,0,0.8)'}
+                        onMouseOut={(e) => e.target.style.background = 'rgba(0,0,0,0.5)'}
                     >
-                        <ChevronRight size={48} />
+                        <ChevronRight size={24} />
                     </button>
 
                 </div>
@@ -248,9 +258,6 @@ const Projects = () => {
             {/* Mobile Styles Injection (since we are not using css modules) */}
             <style>{`
                 @media (max-width: 768px) {
-                    .hidden-mobile-nav {
-                        display: none !important;
-                    }
                     .hidden-mobile {
                         display: none;
                     }
