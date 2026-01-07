@@ -16,6 +16,7 @@ import antImage from '../assets/ANT.png';
 import adImage from '../assets/AD.jpg';
 import mindsdbImage from '../assets/mindsdb_Logo.jpg';
 import n8nImage from '../assets/6889d23f942270565468d8a1_n8n logo.jpg';
+import dashboardImage from '../assets/dashboard.png';
 
 export const projects = [
   {
@@ -73,10 +74,28 @@ export const projects = [
     image: n8nImage,
     githubUrl: "https://github.com/ndriannazriel/N8N-Proposal-Maker-Old",
     stats: {
-      "Efficiency": "+500%",
-      "Time": "Saved",
-      "Tool": "n8n"
-    }
+      "Vector Database": "Supabase",
+      "Focus": "RAG",
+      "Software": "n8n"
+    },
+    // Business Impact
+    impact: {
+      "Response Time": "< 2 seconds",
+      "Accuracy": "95%",
+      "Queries Handled": "1000+/day"
+    },
+    // Technical Architecture
+    architecture: {
+      "Data Pipeline": "n8n",
+      "Vector DB": "Supabase",
+      "AI Model": "OpenAI GPT-4",
+      "Interface": "Telegram Bot"
+    },
+    // Challenge & Solution
+    challenge: "Users needed instant access to company knowledge base without manual searching",
+    solution: "Built RAG-powered chatbot that retrieves contextual information from vector database in real-time",
+    // Live Demo (optional)
+    demoUrl: "" // Add your demo link here
   },
   {
     id: 5,
@@ -86,7 +105,64 @@ export const projects = [
     category: "Automation",
     icon: FileText,
     image: n8nImage,
-    githubUrl: "https://github.com/ndriannazriel/Billing-Automation"
+    githubUrl: "https://github.com/ndriannazriel/Billing-Automation",
+    stats: {
+      "Automation": "N8N",
+      "Focus": "Billing",
+      "Client Portal": "Pabbly",
+      "invoice & Payment": "Bukku"
+    },
+    // Business Impact
+    impact: {
+      "Time Saved": "15 hrs/week",
+      "Error Reduction": "98%",
+      "Invoices Processed": "500+/month"
+    },
+    // Technical Architecture
+    architecture: {
+      "Workflow Engine": "n8n",
+      "Subscription Platform": "Pabbly",
+      "Accounting System": "Bukku API",
+      "Trigger": "Webhook"
+    },
+    // Challenge & Solution
+    challenge: "Manual invoice creation was time-consuming and error-prone, causing billing delays",
+    solution: "Automated end-to-end billing workflow that creates and sends invoices instantly upon subscription events",
+    // Live Demo (optional)
+    demoUrl: ""
+  },
+  {
+    id: 6,
+    title: "TH Performance Dashboard",
+    description: "A Next.js webapp using Supabase as the backend along with n8n for the data pipeline to insert data into Supabase.",
+    tech: ["n8n", "Supabase", "Next.js", "React", "Tailwind CSS", "Shadcn UI", "Chart.js"],
+    category: "Full Stack Web Application",
+    icon: FileText,
+    image: dashboardImage,
+    githubUrl: "https://github.com/ndriannazriel/Performance-Dashboard",
+    stats: {
+      "Framework": "Next.js",
+      "Database": "Supabase",
+      "Charts": "Chart.js"
+    },
+    // Business Impact
+    impact: {
+      "Data Visibility": "Real-time",
+      "Decision Speed": "3x faster",
+      "Users": "50+ daily"
+    },
+    // Technical Architecture
+    architecture: {
+      "Frontend": "Next.js + React",
+      "Backend": "Supabase",
+      "Data Pipeline": "n8n",
+      "UI Components": "Shadcn UI"
+    },
+    // Challenge & Solution
+    challenge: "Team lacked centralized performance metrics, making data-driven decisions difficult",
+    solution: "Built real-time dashboard with automated data pipeline that aggregates and visualizes key performance indicators",
+    // Live Demo (optional)
+    demoUrl: ""
   }
 ];
 

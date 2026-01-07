@@ -10,7 +10,7 @@ const PresentationMode = ({ onClose }) => {
     // Extend slides to include an Intro and Outro slide
     // FILTER: Only show specific projects for the presentation (IDs: 1, 2, 5)
     // You can add or remove IDs from this list [1, 2, 5] to control what shows up.
-    const selectedProjectIds = [1, 2, 5];
+    const selectedProjectIds = [4, 5, 6];
     const presentationProjects = projects.filter(p => selectedProjectIds.includes(p.id));
 
     const slides = [
@@ -114,38 +114,144 @@ const PresentationMode = ({ onClose }) => {
                         </div>
 
                         {/* Right: Info */}
-                        <div className="space-y-8">
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', maxHeight: '80vh', overflowY: 'auto', paddingRight: '1rem' }}>
+                            {/* Header */}
                             <div>
-                                <div className="flex items-center gap-3 mb-4 text-blue-400 font-mono text-sm">
-                                    <currentSlide.icon size={18} />
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem', color: '#60a5fa', fontFamily: 'monospace', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                                    <currentSlide.icon size={16} />
                                     <span>{currentSlide.category}</span>
                                 </div>
-                                <h2 className="text-5xl font-bold mb-6" style={{ fontSize: '3.5rem', lineHeight: 1.1, marginBottom: '1.5rem' }}>
+                                <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', lineHeight: 1.1, marginBottom: '1rem' }}>
                                     {currentSlide.title}
                                 </h2>
-                                <p className="text-xl text-gray-400 leading-relaxed">
+                                <p style={{ fontSize: '1rem', color: '#9ca3af', lineHeight: 1.7 }}>
                                     {currentSlide.description}
                                 </p>
                             </div>
 
-                            {/* Stats Grid */}
-                            <div className="grid grid-cols-3 gap-6 py-6 border-t border-white/10 border-b"
-                                style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', padding: '1.5rem 0', borderTop: '1px solid rgba(255,255,255,0.1)', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-                                {Object.entries(currentSlide.stats).map(([label, value]) => (
-                                    <div key={label}>
-                                        <div className="text-2xl font-bold text-white mb-1" style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{value}</div>
-                                        <div className="text-sm text-gray-500 font-mono uppercase">{label}</div>
+                            {/* Divider */}
+                            <div style={{ height: '1px', background: 'rgba(255,255,255,0.1)' }}></div>
+
+                            {/* Business Impact */}
+                            {currentSlide.impact && (
+                                <div>
+                                    <div style={{ fontSize: '0.7rem', fontFamily: 'monospace', color: '#60a5fa', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                                        📊 Business Impact
                                     </div>
-                                ))}
-                            </div>
+                                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+                                        {Object.entries(currentSlide.impact).map(([label, value]) => (
+                                            <div key={label}>
+                                                <div style={{ fontSize: '1.75rem', fontWeight: 'bold', color: 'white', marginBottom: '0.25rem' }}>{value}</div>
+                                                <div style={{ fontSize: '0.7rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Challenge & Solution */}
+                            {(currentSlide.challenge || currentSlide.solution) && (
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                                    {currentSlide.challenge && (
+                                        <div>
+                                            <div style={{ fontSize: '0.7rem', fontFamily: 'monospace', color: '#f87171', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                                                ⚠️ Challenge
+                                            </div>
+                                            <p style={{ color: '#e5e7eb', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>{currentSlide.challenge}</p>
+                                        </div>
+                                    )}
+                                    {currentSlide.solution && (
+                                        <div>
+                                            <div style={{ fontSize: '0.7rem', fontFamily: 'monospace', color: '#4ade80', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                                                ✓ Solution
+                                            </div>
+                                            <p style={{ color: '#e5e7eb', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>{currentSlide.solution}</p>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                            {/* Technical Architecture */}
+                            {currentSlide.architecture && (
+                                <div>
+                                    <div style={{ fontSize: '0.7rem', fontFamily: 'monospace', color: '#a78bfa', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                                        🏗️ Architecture
+                                    </div>
+                                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+                                        {Object.entries(currentSlide.architecture).map(([label, value]) => (
+                                            <div key={label}>
+                                                <div style={{ fontSize: '0.65rem', color: '#6b7280', marginBottom: '0.25rem', textTransform: 'uppercase' }}>{label}</div>
+                                                <div style={{ fontSize: '1rem', fontWeight: '600', color: 'white' }}>{value}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Divider */}
+                            <div style={{ height: '1px', background: 'rgba(255,255,255,0.1)' }}></div>
 
                             {/* Tech Stack */}
-                            <div className="flex flex-wrap gap-3">
-                                {currentSlide.tech.map(t => (
-                                    <span key={t} className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm">
-                                        {t}
-                                    </span>
-                                ))}
+                            <div>
+                                <div style={{ fontSize: '0.7rem', fontFamily: 'monospace', color: '#9ca3af', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                                    Tech Stack
+                                </div>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                                    {currentSlide.tech.map(t => (
+                                        <span key={t} style={{
+                                            padding: '0.35rem 0.75rem',
+                                            borderRadius: '9999px',
+                                            background: 'rgba(255,255,255,0.08)',
+                                            fontSize: '0.75rem',
+                                            color: '#d1d5db'
+                                        }}>
+                                            {t}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Links */}
+                            <div style={{ display: 'flex', gap: '0.75rem' }}>
+                                {currentSlide.githubUrl && (
+                                    <a href={currentSlide.githubUrl} target="_blank" rel="noopener noreferrer"
+                                        style={{
+                                            flex: 1,
+                                            padding: '0.75rem 1rem',
+                                            borderRadius: '0.5rem',
+                                            background: 'rgba(255,255,255,0.1)',
+                                            border: '1px solid rgba(255,255,255,0.2)',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            gap: '0.5rem',
+                                            fontSize: '0.875rem',
+                                            fontWeight: '500',
+                                            color: 'white',
+                                            textDecoration: 'none'
+                                        }}>
+                                        <Github size={16} /> View Code
+                                    </a>
+                                )}
+                                {currentSlide.demoUrl && (
+                                    <a href={currentSlide.demoUrl} target="_blank" rel="noopener noreferrer"
+                                        style={{
+                                            flex: 1,
+                                            padding: '0.75rem 1rem',
+                                            borderRadius: '0.5rem',
+                                            background: '#3b82f6',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            gap: '0.5rem',
+                                            fontSize: '0.875rem',
+                                            fontWeight: '500',
+                                            color: 'white',
+                                            textDecoration: 'none'
+                                        }}>
+                                        <ExternalLink size={16} /> Live Demo
+                                    </a>
+                                )}
                             </div>
                         </div>
                     </div>
