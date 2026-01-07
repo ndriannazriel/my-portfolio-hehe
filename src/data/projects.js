@@ -199,7 +199,7 @@ export const projects = [
     impact: ["Reporting Automation", "3x/week", "Client Engagement"],
     // Technical Architecture
     // Challenge & Solution
-    challenge: "Clients needed reports to be generated 3 times a week.\nReports need to be changed frequently to match client's needs.",
+    challenge: "1) Clients needed reports to be generated 3 times a week.\n2) Reports need to be changed frequently to match client's needs.",
     solution: "MultiTasking = Answer",
     gallery: [bitcoinImage1, bitcoinImage2, bitcoinImage3] // Placeholder images - replace with your actual engagement photos
   }

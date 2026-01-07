@@ -40,7 +40,7 @@ const PresentationMode = ({ onClose }) => {
     const presentationProjects = projects.filter(p => selectedProjectIds.includes(p.id));
 
     const slides = [
-        { type: 'intro', title: 'My Work', subtitle: 'Internship Portfolio Presentation' },
+        { type: 'intro', title: 'Internship Site Visit Presentation', subtitle: 'MUHAMMAD ANDRIAN NAZRIEL BIN KHAIRUL NAZMAN' },
         ...presentationProjects.map(p => ({ ...p, type: 'project' })),
         { type: 'outro', title: 'Thank You', subtitle: 'Questions & Discussion' }
     ];
@@ -168,7 +168,7 @@ const PresentationMode = ({ onClose }) => {
                         </h1>
                         <p className="text-2xl text-gray-400 font-light">{currentSlide.subtitle}</p>
                         <div className="mt-12 text-sm text-gray-500 animate-pulse">
-                            Use ARROW KEYS to navigate
+
                         </div>
                     </div>
                 )}
