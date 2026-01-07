@@ -6,7 +6,7 @@ const Contact = () => {
             <div className="container" style={{ textAlign: 'center' }}>
                 <h2 style={{ marginBottom: '1rem' }}>Let's Work Together</h2>
                 <p style={{ maxWidth: '500px', margin: '0 auto 3rem', color: 'var(--color-text-muted)' }}>
-                    I'm currently looking for internship opportunities. If you have a project in mind or just want to say hi, feel free to reach out!
+                    Do reach out if you have any questions or want to collaborate on a project.
                 </p>
 
                 <a href="mailto:placeholder@email.com" className="glass" style={{

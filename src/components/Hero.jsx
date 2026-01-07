@@ -11,7 +11,7 @@ const Hero = () => {
                     Andrian Nazriel<span style={{ color: 'var(--color-primary)' }}>.</span>
                 </h1>
                 <p className="animate-fade-in" style={{ fontSize: '1.5rem', maxWidth: '600px', margin: '0 auto 2.5rem', color: 'var(--color-text-muted)', animationDelay: '0.2s' }}>
-                    Internship Student crafting digital experiences.
+                    Building foundations. Solving problems. Always learning.
                 </p>
 
                 <div className="animate-fade-in" style={{ animationDelay: '0.3s', display: 'flex', gap: '1rem', justifyContent: 'center' }}>
