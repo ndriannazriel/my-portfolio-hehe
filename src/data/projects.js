@@ -22,6 +22,7 @@ import forceheroImage2 from '../assets/forcehero/forcehero2.jpg';
 import forceheroImage3 from '../assets/forcehero/forcehero3.jpg';
 import forceheroImage4 from '../assets/forcehero/forcehero4.jpg';
 import forceheroImage5 from '../assets/forcehero/forcehero5.jpg';
+import forceheropreview from '../assets/forcehero/forceheropreview.png';
 
 export const projects = [
   {
@@ -175,18 +176,13 @@ export const projects = [
     description: "Auxiallary Police Force Management System. Engaging with clients to understand their needs and provide tailored solutions based on the current system that agencies have.",
     category: "Technical Account Manager",
     icon: FileText,
-    image: dashboardImage,
+    image: forceheropreview,
     // Business Impact
-    impact: {
-      "Data Visibility": "Real-time",
-      "Decision Speed": "3x faster",
-      "Users": "50+ daily"
-    },
+    impact: ["Auxillary Police Force Management", "Technical Demonstrations", "Client Engagement"],
     // Technical Architecture
     // Challenge & Solution
     challenge: "Keeping everything in check.",
     solution: "MultiTasking = Answer",
-    tech: ["Police Force Management", "Solution Architecture", "Client Engagement"],
     gallery: [forceheroImage1, forceheroImage2, forceheroImage3, forceheroImage4, forceheroImage5] // Placeholder images - replace with your actual engagement photos
   }
 ];

@@ -333,7 +333,7 @@ const ProjectCard = ({ project }) => {
 
                     <div style={{ marginTop: 'auto' }}>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
-                            {project.tech.map(t => (
+                            {project.tech?.map(t => (
                                 <span key={t} style={{
                                     fontSize: '0.85rem',
                                     background: 'rgba(59, 130, 246, 0.1)',

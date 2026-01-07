@@ -154,12 +154,20 @@ const PresentationMode = ({ onClose }) => {
                                         📊 Business Impact
                                     </div>
                                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
-                                        {Object.entries(currentSlide.impact).map(([label, value]) => (
-                                            <div key={label}>
-                                                <div style={{ fontSize: '1.75rem', fontWeight: 'bold', color: 'white', marginBottom: '0.25rem' }}>{value}</div>
-                                                <div style={{ fontSize: '0.7rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</div>
-                                            </div>
-                                        ))}
+                                        {Array.isArray(currentSlide.impact) ? (
+                                            currentSlide.impact.map((value, index) => (
+                                                <div key={index}>
+                                                    <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'white', marginBottom: '0.25rem' }}>{value}</div>
+                                                </div>
+                                            ))
+                                        ) : (
+                                            Object.entries(currentSlide.impact).map(([label, value]) => (
+                                                <div key={label}>
+                                                    <div style={{ fontSize: '1.75rem', fontWeight: 'bold', color: 'white', marginBottom: '0.25rem' }}>{value}</div>
+                                                    <div style={{ fontSize: '0.7rem', color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</div>
+                                                </div>
+                                            ))
+                                        )}
                                     </div>
                                 </div>
                             )}
