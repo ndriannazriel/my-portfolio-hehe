@@ -405,10 +405,10 @@ const PresentationMode = ({ onClose }) => {
                 {currentSlide.type === 'summary' && (
                     <div className="w-full max-w-5xl" style={{ animation: 'fadeIn 0.8s ease' }}>
                         <div className="text-center mb-16">
-                            <h2 style={{ fontSize: '3.5rem', fontWeight: 'bold', marginBottom: '1rem', background: 'linear-gradient(to r, #60a5fa, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                            <h2 style={{ fontSize: '3.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#fff' }}>
                                 {currentSlide.title}
                             </h2>
-                            <p style={{ fontSize: '1.25rem', color: '#9ca3af' }}>{currentSlide.subtitle}</p>
+                            <p style={{ fontSize: '1.25rem', color: '#fff', opacity: 0.8 }}>{currentSlide.subtitle}</p>
                         </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
@@ -440,6 +440,59 @@ const PresentationMode = ({ onClose }) => {
                                     </div>
                                 </div>
                             ))}
+                        </div>
+
+                        {/* Unique Tech Values (Technical Ecosystem) */}
+                        <div style={{
+                            marginTop: '4rem',
+                            padding: '3rem',
+                            background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%)',
+                            borderRadius: '1.5rem',
+                            border: '1px solid rgba(255,255,255,0.05)',
+                            animation: 'fadeIn 1s ease forwards 0.8s',
+                            opacity: 0
+                        }}>
+                            <div style={{ fontSize: '0.75rem', fontFamily: 'monospace', color: '#a78bfa', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.2em', textAlign: 'center' }}>
+                                🛠️ Technical Ecosystem
+                            </div>
+                            <div style={{
+                                display: 'flex',
+                                flexWrap: 'wrap',
+                                gap: '0.75rem',
+                                justifyContent: 'center',
+                                maxWidth: '900px',
+                                margin: '0 auto'
+                            }}>
+                                {Array.from(new Set(presentationProjects.flatMap(p => p.tech || []))).sort().map((tech, idx) => (
+                                    <span
+                                        key={idx}
+                                        style={{
+                                            padding: '0.5rem 1rem',
+                                            borderRadius: '9999px',
+                                            background: 'rgba(255,255,255,0.05)',
+                                            border: '1px solid rgba(255,255,255,0.1)',
+                                            fontSize: '0.8rem',
+                                            color: '#d1d5db',
+                                            transition: 'all 0.3s ease',
+                                            cursor: 'default'
+                                        }}
+                                        onMouseOver={(e) => {
+                                            e.currentTarget.style.background = 'rgba(59, 130, 246, 0.1)';
+                                            e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                                            e.currentTarget.style.color = '#fff';
+                                            e.currentTarget.style.transform = 'translateY(-2px)';
+                                        }}
+                                        onMouseOut={(e) => {
+                                            e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                                            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                                            e.currentTarget.style.color = '#d1d5db';
+                                            e.currentTarget.style.transform = 'translateY(0)';
+                                        }}
+                                    >
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 )}
@@ -483,7 +536,7 @@ const PresentationMode = ({ onClose }) => {
                         justifyContent: 'center',
                         padding: '2rem',
                         cursor: 'zoom-out',
-                        animation: 'fade-in 0.3s ease'
+                        animation: 'fadeIn 0.3s ease'
                     }}
                 >
                     <button
