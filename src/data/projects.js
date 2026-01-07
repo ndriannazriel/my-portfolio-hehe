@@ -23,6 +23,9 @@ import forceheroImage3 from '../assets/forcehero/forcehero3.jpg';
 import forceheroImage4 from '../assets/forcehero/forcehero4.jpg';
 import forceheroImage5 from '../assets/forcehero/forcehero5.jpg';
 import forceheropreview from '../assets/forcehero/forceheropreview.png';
+import bitcoinImage1 from '../assets/bitcoin/clientReport.jpg';
+import bitcoinImage2 from '../assets/bitcoin/cmstatus.jpg';
+import bitcoinImage3 from '../assets/bitcoin/MinLog.jpg';
 
 export const projects = [
   {
@@ -178,12 +181,27 @@ export const projects = [
     icon: FileText,
     image: forceheropreview,
     // Business Impact
-    impact: ["Auxillary Police Force Management", "Technical Demonstrations", "Client Engagement"],
+    impact: ["Auxillary Police Force Management", "Technical Demonstrations (Pilot Phase)", "Client Engagement"],
     // Technical Architecture
     // Challenge & Solution
     challenge: "Keeping everything in check.",
     solution: "MultiTasking = Answer",
     gallery: [forceheroImage1, forceheroImage2, forceheroImage3, forceheroImage4, forceheroImage5] // Placeholder images - replace with your actual engagement photos
+  },
+  {
+    id: 8,
+    title: "Bitcoin Mining Automation",
+    description: "Generate Reports for Compass Mining's clients 3 times a week.",
+    category: "Automation",
+    icon: FileText,
+    image: n8nImage,
+    // Business Impact
+    impact: ["Reporting Automation", "3x/week", "Client Engagement"],
+    // Technical Architecture
+    // Challenge & Solution
+    challenge: "Clients needed reports to be generated 3 times a week.\nReports need to be changed frequently to match client's needs.",
+    solution: "MultiTasking = Answer",
+    gallery: [bitcoinImage1, bitcoinImage2, bitcoinImage3] // Placeholder images - replace with your actual engagement photos
   }
 ];
 

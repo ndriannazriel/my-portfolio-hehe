@@ -8,6 +8,7 @@ const PresentationMode = ({ onClose }) => {
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [galleryIndex, setGalleryIndex] = useState(0);
     const [showControls, setShowControls] = useState(true);
+    const [zoomImage, setZoomImage] = useState(null);
 
     // Auto-hide controls logic
     useEffect(() => {
@@ -35,7 +36,7 @@ const PresentationMode = ({ onClose }) => {
     // Extend slides to include an Intro and Outro slide
     // FILTER: Only show specific projects for the presentation (IDs: 1, 2, 5)
     // You can add or remove IDs from this list [1, 2, 5] to control what shows up.
-    const selectedProjectIds = [4, 5, 7, 6];
+    const selectedProjectIds = [4, 5, 7, 6, 8];
     const presentationProjects = projects.filter(p => selectedProjectIds.includes(p.id));
 
     const slides = [
@@ -69,6 +70,10 @@ const PresentationMode = ({ onClose }) => {
     // Keyboard navigation
     useEffect(() => {
         const handleKeyDown = (e) => {
+            if (zoomImage) {
+                if (e.key === 'Escape') setZoomImage(null);
+                return;
+            }
             if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
             if (e.key === 'ArrowLeft') prevSlide();
             if (e.key === 'Escape') onClose();
@@ -76,7 +81,7 @@ const PresentationMode = ({ onClose }) => {
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [currentIndex, isTransitioning]);
+    }, [currentIndex, isTransitioning, zoomImage]);
 
     // Gallery auto-cycling for engagement photos
     useEffect(() => {
@@ -176,7 +181,8 @@ const PresentationMode = ({ onClose }) => {
                         {/* Left: Image */}
                         <div className="relative group">
                             <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-violet-500 rounded-2xl blur opacity-30"></div>
-                            <div className="relative rounded-2xl overflow-hidden aspect-video bg-gray-900 border border-white/10 shadow-2xl">
+                            <div className="relative rounded-2xl overflow-hidden aspect-video bg-gray-900 border border-white/10 shadow-2xl cursor-zoom-in"
+                                onClick={() => setZoomImage(currentSlide.image)}>
                                 <img
                                     src={currentSlide.image}
                                     alt={currentSlide.title}
@@ -273,7 +279,7 @@ const PresentationMode = ({ onClose }) => {
                             {currentSlide.gallery && currentSlide.gallery.length > 0 && (
                                 <div>
                                     <div style={{ fontSize: '0.7rem', fontFamily: 'monospace', color: '#60a5fa', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                                        📸 Engagement Gallery
+                                        📸 Gallery
                                     </div>
                                     <div style={{
                                         position: 'relative',
@@ -281,8 +287,11 @@ const PresentationMode = ({ onClose }) => {
                                         borderRadius: '0.75rem',
                                         overflow: 'hidden',
                                         background: '#111',
-                                        border: '1px solid rgba(255,255,255,0.1)'
-                                    }}>
+                                        border: '1px solid rgba(255,255,255,0.1)',
+                                        cursor: 'zoom-in'
+                                    }}
+                                        onClick={() => setZoomImage(currentSlide.gallery[galleryIndex])}
+                                    >
                                         {currentSlide.gallery.map((img, index) => (
                                             <img
                                                 key={index}
@@ -398,6 +407,59 @@ const PresentationMode = ({ onClose }) => {
                     style={{ width: `${((currentIndex + 1) / slides.length) * 100}%` }}
                 />
             </div>
+
+            {/* Lightbox / Zoomed Image Overlay */}
+            {zoomImage && (
+                <div
+                    onClick={() => setZoomImage(null)}
+                    style={{
+                        position: 'fixed',
+                        inset: 0,
+                        zIndex: 10000,
+                        backgroundColor: 'rgba(0,0,0,0.9)',
+                        backdropFilter: 'blur(10px)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        padding: '2rem',
+                        cursor: 'zoom-out',
+                        animation: 'fade-in 0.3s ease'
+                    }}
+                >
+                    <button
+                        onClick={() => setZoomImage(null)}
+                        style={{
+                            position: 'absolute',
+                            top: '2rem',
+                            right: '2rem',
+                            background: 'white',
+                            color: 'black',
+                            border: 'none',
+                            borderRadius: '50%',
+                            width: '40px',
+                            height: '40px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            cursor: 'pointer',
+                            zIndex: 10
+                        }}
+                    >
+                        <X size={24} />
+                    </button>
+                    <img
+                        src={zoomImage}
+                        alt="Zoomed view"
+                        style={{
+                            maxWidth: '100%',
+                            maxHeight: '100%',
+                            objectFit: 'contain',
+                            borderRadius: '0.5rem',
+                            boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)'
+                        }}
+                    />
+                </div>
+            )}
         </div>
     );
 };
