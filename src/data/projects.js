@@ -178,6 +178,7 @@ export const projects = [
     category: "Technical Account Manager",
     icon: FileText,
     image: forceheropreview,
+    tech: ["Project Management", "Stakeholder Engagement", "Technical Sales", "Pilot Strategy"],
     // Business Impact
     impact: ["Auxillary Police Force Management", "Technical Demonstrations (Pilot Phase)", "Client Engagement"],
     // Technical Architecture
@@ -196,6 +197,7 @@ export const projects = [
     category: "Automation",
     icon: FileText,
     image: n8nImage,
+    tech: ["n8n", "Data Automation", "Reporting", "API Integration"],
     // Business Impact
     impact: ["Reporting Automation", "3x/week", "Client Engagement"],
     // Technical Architecture

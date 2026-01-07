@@ -42,6 +42,7 @@ const PresentationMode = ({ onClose }) => {
     const slides = [
         { type: 'intro', title: 'Internship Site Visit Presentation', subtitle: 'MUHAMMAD ANDRIAN NAZRIEL BIN KHAIRUL NAZMAN' },
         ...presentationProjects.map(p => ({ ...p, type: 'project' })),
+        { type: 'summary', title: 'Presentation Summary', subtitle: 'Key Projects & Technical Highlights' },
         { type: 'outro', title: 'Thank You', subtitle: 'Questions & Discussion' }
     ];
 
@@ -396,6 +397,49 @@ const PresentationMode = ({ onClose }) => {
                                     </a>
                                 )}
                             </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* SUMMARY SLIDE */}
+                {currentSlide.type === 'summary' && (
+                    <div className="w-full max-w-5xl" style={{ animation: 'fadeIn 0.8s ease' }}>
+                        <div className="text-center mb-16">
+                            <h2 style={{ fontSize: '3.5rem', fontWeight: 'bold', marginBottom: '1rem', background: 'linear-gradient(to r, #60a5fa, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                                {currentSlide.title}
+                            </h2>
+                            <p style={{ fontSize: '1.25rem', color: '#9ca3af' }}>{currentSlide.subtitle}</p>
+                        </div>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                            {presentationProjects.map((project, idx) => (
+                                <div
+                                    key={project.id}
+                                    style={{
+                                        padding: '2rem',
+                                        background: 'rgba(255,255,255,0.03)',
+                                        border: '1px solid rgba(255,255,255,0.1)',
+                                        borderRadius: '1rem',
+                                        transition: 'all 0.3s ease',
+                                        opacity: 0,
+                                        animation: `fadeIn 0.5s ease forwards ${idx * 0.1}s`
+                                    }}
+                                >
+                                    <div style={{ color: '#60a5fa', fontFamily: 'monospace', fontSize: '0.7rem', textTransform: 'uppercase', marginBottom: '0.5rem', letterSpacing: '0.1em' }}>
+                                        Project 0{idx + 1}
+                                    </div>
+                                    <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.75rem' }}>{project.title}</h3>
+                                    <div style={{ fontSize: '0.85rem', color: '#9ca3af', marginBottom: '1rem' }}>{project.category}</div>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                                        {project.tech?.slice(0, 3).map(t => (
+                                            <span key={t} style={{ fontSize: '0.65rem', background: 'rgba(59, 130, 246, 0.1)', color: '#60a5fa', padding: '0.2rem 0.6rem', borderRadius: '4px' }}>
+                                                {t}
+                                            </span>
+                                        ))}
+                                        {(project.tech?.length > 3) && <span style={{ fontSize: '0.65rem', color: '#4b5563' }}>+{project.tech.length - 3} more</span>}
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 )}
