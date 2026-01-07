@@ -1,64 +1,95 @@
 
-import { Monitor, Smartphone, Globe, Code, Database, Layers } from 'lucide-react';
+import {
+  Monitor,
+  Smartphone,
+  Globe,
+  Code,
+  Database,
+  Layers,
+  Brain,
+  Shield,
+  Server,
+  FileText,
+  Workflow
+} from 'lucide-react';
 
 export const projects = [
   {
     id: 1,
-    title: "E-Commerce Dashboard",
-    description: "A comprehensive analytics dashboard for online retailers. Features real-time sales tracking, inventory management, and customer insights visualization.",
-    tech: ["React", "D3.js", "Node.js", "MongoDB"],
-    category: "Web App",
-    icon: Monitor,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070",
+    title: "MindsDB AI Agent",
+    description: "An intelligent agent built with Python and MindsDB, capable of predictive analysis and automated decision making within database environments.",
+    tech: ["Python", "MindsDB", "Machine Learning", "AI"],
+    category: "AI / ML",
+    icon: Brain,
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=2070", // AI Network
+    githubUrl: "https://github.com/ndriannazriel/mindsdb-ai-agent",
     stats: {
-      "Performance": "98/100",
-      "Users": "10k+",
-      "Uptime": "99.9%"
+      "Language": "Python",
+      "Focus": "AI Agents",
+      "Status": "Public"
     }
   },
   {
     id: 2,
-    title: "EcoTrack Mobile App",
-    description: "Sustainability tracking application allowing users to monitor their carbon footprint. Gamified features encourage eco-friendly habits.",
-    tech: ["React Native", "Firebase", "Redux"],
-    category: "Mobile",
-    icon: Smartphone,
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2074",
+    title: "Active Directory 2.0",
+    description: "A modern implementation and configuration of Active Directory services, focusing on secure identity management and network administration.",
+    tech: ["Active Directory", "Windows Server", "Security", "Identity Mgmt"],
+    category: "System Admin",
+    icon: Shield,
+    image: "https://images.unsplash.com/photo-1558494949-efc52728101c?auto=format&fit=crop&q=80&w=2070", // Server Room
+    githubUrl: "https://github.com/ndriannazriel/Active-Directory-2.0",
     stats: {
-      "Downloads": "50k+",
-      "Rating": "4.8/5",
-      "CO2 Saved": "500 tons"
+      "Security": "High",
+      "Users": "Enterprise",
+      "Type": "Infra"
     }
   },
   {
     id: 3,
-    title: "AI Content Generator",
-    description: "SaaS platform leveraging GPT-4 for generating marketing copy. Includes templates for social media, blogs, and email campaigns.",
-    tech: ["Next.js", "OpenAI API", "Tailwind", "Stripe"],
-    category: "AI / SaaS",
-    icon: Globe,
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2070",
+    title: "Advanced Network Tech",
+    description: "Exploration of advanced networking concepts or configurations, likely involving infrastructure setup, routing protocols, or network security.",
+    tech: ["Networking", "Infrastructure", "TCP/IP", "Configuration"],
+    category: "Networking",
+    icon: Server,
+    image: "https://images.unsplash.com/photo-1544197150-b99a580bbcbf?auto=format&fit=crop&q=80&w=2070", // Network Cables
+    githubUrl: "https://github.com/ndriannazriel/Advanced-Network-Tech",
     stats: {
-      "Active Users": "5k",
-      "Words Gen": "1M+",
-      "MRR": "$2k"
+      "Latency": "Low",
+      "Scale": "Global",
+      "Uptime": "99.9%"
     }
   },
   {
     id: 4,
-    title: "Portfolio V1",
-    description: "My first portfolio website built with HTML/CSS. It wasn't perfect, but it taught me the fundamentals of layout and responsive design.",
-    tech: ["HTML5", "CSS3", "JavaScript"],
-    category: "Web Design",
-    icon: Layout,
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=2070",
+    title: "N8N Proposal Maker",
+    description: "Automated workflow for generating proposals using n8n. Streamlines the document creation process through low-code automation.",
+    tech: ["n8n", "Workflow Automation", "JSON", "Document Gen"],
+    category: "Automation",
+    icon: FileText,
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=2070", // Documents/Planning
+    githubUrl: "https://github.com/ndriannazriel/N8N-Proposal-Maker-Old",
     stats: {
-      "Year": "2023",
-      "Learning": "High",
-      "Nostalgia": "100%"
+      "Efficiency": "+500%",
+      "Time": "Saved",
+      "Tool": "n8n"
+    }
+  },
+  {
+    id: 5,
+    title: "My Portfolio",
+    description: "The source code for this portfolio website! A React-based showcase featuring a custom design system and interactive elements.",
+    tech: ["React", "Vite", "JavaScript", "CSS3"],
+    category: "Web Dev",
+    icon: Globe,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=2070", // Coding screen
+    githubUrl: "https://github.com/ndriannazriel/my-portfolio-hehe",
+    stats: {
+      "Framework": "React",
+      "Speed": "Fast",
+      "Design": "Custom"
     }
   }
 ];
 
-// Helper icon imports (Layout wasn't imported initially)
-import { Layout } from 'lucide-react';
+// Re-export specific icons if needed for dynamic usage elsewhere
+export const Icons = { Monitor, Smartphone, Globe, Code, Database, Layers, Brain, Shield, Server, FileText, Workflow };

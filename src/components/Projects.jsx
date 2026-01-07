@@ -30,7 +30,12 @@ const Projects = () => {
                             <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem' }}>
                                     <h3 style={{ fontSize: '1.25rem' }}>{project.title}</h3>
-                                    <a href="#" style={{ color: 'var(--color-primary)' }}>
+                                    <a
+                                        href={project.githubUrl || "#"}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{ color: 'var(--color-primary)' }}
+                                    >
                                         <ArrowUpRight size={20} />
                                     </a>
                                 </div>
