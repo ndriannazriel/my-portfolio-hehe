@@ -244,7 +244,15 @@ const PresentationMode = ({ onClose }) => {
                                             <div style={{ fontSize: '0.7rem', fontFamily: 'monospace', color: '#f87171', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                                                 ⚠️ Challenge
                                             </div>
-                                            <p style={{ color: '#e5e7eb', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>{currentSlide.challenge}</p>
+                                            {Array.isArray(currentSlide.challenge) ? (
+                                                <ul style={{ color: '#e5e7eb', fontSize: '0.95rem', lineHeight: 1.7, margin: 0, paddingLeft: '1.2rem', listStyleType: 'disc' }}>
+                                                    {currentSlide.challenge.map((item, idx) => (
+                                                        <li key={idx} style={{ marginBottom: '0.5rem' }}>{item}</li>
+                                                    ))}
+                                                </ul>
+                                            ) : (
+                                                <p style={{ color: '#e5e7eb', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>{currentSlide.challenge}</p>
+                                            )}
                                         </div>
                                     )}
                                     {currentSlide.solution && (
@@ -252,7 +260,15 @@ const PresentationMode = ({ onClose }) => {
                                             <div style={{ fontSize: '0.7rem', fontFamily: 'monospace', color: '#4ade80', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                                                 ✓ Solution
                                             </div>
-                                            <p style={{ color: '#e5e7eb', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>{currentSlide.solution}</p>
+                                            {Array.isArray(currentSlide.solution) ? (
+                                                <ul style={{ color: '#e5e7eb', fontSize: '0.95rem', lineHeight: 1.7, margin: 0, paddingLeft: '1.2rem', listStyleType: 'disc' }}>
+                                                    {currentSlide.solution.map((item, idx) => (
+                                                        <li key={idx} style={{ marginBottom: '0.5rem' }}>{item}</li>
+                                                    ))}
+                                                </ul>
+                                            ) : (
+                                                <p style={{ color: '#e5e7eb', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>{currentSlide.solution}</p>
+                                            )}
                                         </div>
                                     )}
                                 </div>
