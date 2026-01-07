@@ -7,6 +7,30 @@ const PresentationMode = ({ onClose }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [galleryIndex, setGalleryIndex] = useState(0);
+    const [showControls, setShowControls] = useState(true);
+
+    // Auto-hide controls logic
+    useEffect(() => {
+        let timeout;
+        const handleMouseMove = () => {
+            setShowControls(true);
+            clearTimeout(timeout);
+            timeout = setTimeout(() => setShowControls(false), 2500);
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            clearTimeout(timeout);
+        };
+    }, []);
+
+    const toggleFullScreen = () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    };
 
     // Extend slides to include an Intro and Outro slide
     // FILTER: Only show specific projects for the presentation (IDs: 1, 2, 5)
@@ -48,6 +72,7 @@ const PresentationMode = ({ onClose }) => {
             if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
             if (e.key === 'ArrowLeft') prevSlide();
             if (e.key === 'Escape') onClose();
+            if (e.key === 'f') toggleFullScreen();
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
@@ -69,7 +94,16 @@ const PresentationMode = ({ onClose }) => {
 
     return (
         <div className="fixed inset-0 z-50 bg-black text-white flex flex-col overflow-hidden animate-fade-in"
-            style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: '#000', zIndex: 9999 }}>
+            style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100vw',
+                height: '100vh',
+                background: '#000',
+                zIndex: 9999,
+                cursor: showControls ? 'default' : 'none'
+            }}>
 
             {/* Background Ambience */}
             <div className="absolute inset-0 opacity-20 pointer-events-none"
@@ -81,16 +115,40 @@ const PresentationMode = ({ onClose }) => {
             />
 
             {/* Header Controls */}
-            <div className="absolute top-0 left-0 w-full p-6 flex justify-between items-center z-10">
-                <div className="text-white/50 text-sm font-mono">
-                    SLIDE {currentIndex + 1} / {slides.length}
+            <div
+                className="absolute top-0 left-0 w-full p-6 flex justify-between items-center z-10 transition-all duration-500"
+                style={{
+                    opacity: showControls ? 1 : 0,
+                    transform: showControls ? 'translateY(0)' : 'translateY(-20px)',
+                    pointerEvents: showControls ? 'auto' : 'none'
+                }}
+            >
+                <div className="flex items-center gap-6">
+                    <div className="text-white/50 text-sm font-mono tracking-widest">
+                        {currentIndex + 1} / {slides.length}
+                    </div>
+                    {/* Navigation Hints */}
+                    <div className="hidden-mobile text-white/20 text-xs font-mono">
+                        ← PREV | NEXT →
+                    </div>
                 </div>
-                <button
-                    onClick={onClose}
-                    className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-all text-white"
-                >
-                    <X size={24} />
-                </button>
+
+                <div className="flex items-center gap-3">
+                    <button
+                        onClick={toggleFullScreen}
+                        className="p-2 bg-white/5 rounded-full hover:bg-white/20 transition-all text-white/70 hover:text-white"
+                        title="Toggle Fullscreen (F)"
+                    >
+                        <Maximize2 size={20} />
+                    </button>
+                    <button
+                        onClick={onClose}
+                        className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-all text-white"
+                        title="Close (Esc)"
+                    >
+                        <X size={24} />
+                    </button>
+                </div>
             </div>
 
             {/* Main Content Area */}
@@ -331,7 +389,10 @@ const PresentationMode = ({ onClose }) => {
             </div>
 
             {/* Progress Bar */}
-            <div className="absolute bottom-0 left-0 h-1 bg-white/10 w-full">
+            <div
+                className="absolute bottom-0 left-0 h-1 bg-white/10 w-full transition-opacity duration-500"
+                style={{ opacity: showControls ? 1 : 0 }}
+            >
                 <div
                     className="h-full bg-blue-500 transition-all duration-300"
                     style={{ width: `${((currentIndex + 1) / slides.length) * 100}%` }}
