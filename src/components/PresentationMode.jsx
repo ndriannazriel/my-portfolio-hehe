@@ -8,9 +8,14 @@ const PresentationMode = ({ onClose }) => {
     const [isTransitioning, setIsTransitioning] = useState(false);
 
     // Extend slides to include an Intro and Outro slide
+    // FILTER: Only show specific projects for the presentation (IDs: 1, 2, 5)
+    // You can add or remove IDs from this list [1, 2, 5] to control what shows up.
+    const selectedProjectIds = [1, 2, 5];
+    const presentationProjects = projects.filter(p => selectedProjectIds.includes(p.id));
+
     const slides = [
         { type: 'intro', title: 'My Work', subtitle: 'Internship Portfolio Presentation' },
-        ...projects.map(p => ({ ...p, type: 'project' })),
+        ...presentationProjects.map(p => ({ ...p, type: 'project' })),
         { type: 'outro', title: 'Thank You', subtitle: 'Questions & Discussion' }
     ];
 
