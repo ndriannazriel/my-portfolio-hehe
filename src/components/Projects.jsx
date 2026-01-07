@@ -90,13 +90,25 @@ const Projects = () => {
                                         opacity: 1,
                                     }}
                                 >
-                                    <div className="glass-panel" style={{
-                                        overflow: 'hidden',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        height: '100%',
-                                        minHeight: '500px'
-                                    }}>
+                                    <div
+                                        className="glass-panel"
+                                        style={{
+                                            overflow: 'hidden',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            height: '100%',
+                                            minHeight: '500px',
+                                            transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                                        }}
+                                        onMouseOver={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(-5px)';
+                                            e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(0,0,0,0.5)';
+                                        }}
+                                        onMouseOut={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(0)';
+                                            e.currentTarget.style.boxShadow = 'none';
+                                        }}
+                                    >
                                         {/* Image Section */}
                                         <div style={{ height: '300px', overflow: 'hidden', position: 'relative' }}>
                                             <div style={{
@@ -106,10 +118,18 @@ const Projects = () => {
                                                 width: '100%',
                                                 height: '100%',
                                                 background: `url(${project.image})`,
-                                                backgroundSize: 'cover',
+                                                backgroundSize: 'cover', // Default: Cover the area (cropped)
                                                 backgroundPosition: 'center',
-                                                transition: 'transform 0.5s ease'
+                                                backgroundRepeat: 'no-repeat',
+                                                transition: 'all 0.5s ease',
+                                                backgroundColor: '#000' // Black background for contain mode
                                             }}
+                                                onMouseOver={(e) => {
+                                                    e.target.style.backgroundSize = 'contain'; // Zoom out to show full image
+                                                }}
+                                                onMouseOut={(e) => {
+                                                    e.target.style.backgroundSize = 'cover'; // Revert to cover
+                                                }}
                                             />
                                             <div style={{
                                                 position: 'absolute',
