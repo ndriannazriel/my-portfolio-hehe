@@ -26,6 +26,7 @@ import forceheropreview from '../assets/forcehero/forceheropreview.png';
 import bitcoinImage1 from '../assets/bitcoin/clientReport.jpg';
 import bitcoinImage2 from '../assets/bitcoin/cmstatus.jpg';
 import bitcoinImage3 from '../assets/bitcoin/MinLog.jpg';
+import asteriskImage from '../assets/a.storyblok.webp';
 
 export const projects = [
   {
@@ -77,7 +78,7 @@ export const projects = [
     id: 4,
     title: "TH Mind",
     description: "A state-of-the-art Retrieval-Augmented Generation (RAG) agent integrated with Telegram. It leverages OpenAI's GPT-4 and a Supabase vector database to provide instant, context-aware responses based on internal company documentation, featuring an automated data pipeline for knowledge base updates.",
-    tech: ["n8n", "Workflow Automation", "Chart Generation", "RAG Agent", "AI"],
+    tech: ["n8n", "Supabase", "RAG Agent", "AI"],
     category: "Automation",
     icon: FileText,
     image: n8nImage,
@@ -110,7 +111,7 @@ export const projects = [
     id: 5,
     title: "SaaS Automation",
     description: "Architecture of an end-to-end billing automation engine connecting Pabbly Subscription with the Bukku accounting system. This workflow eliminates manual invoicing errors and ensures real-time synchronisation of subscription events with financial records using automated webhooks.",
-    tech: ["n8n", "Pabbly Subscription", "Bukku API"],
+    tech: ["n8n", "Pabbly API", "Bukku API"],
     category: "Automation",
     icon: FileText,
     image: n8nImage,
@@ -156,7 +157,7 @@ export const projects = [
     },
     // Technical Architecture
     architecture: {
-      "Framework": "Next.js + React",
+      "Frontend": "Next.js + React",
       "Backend": "Supabase",
       "Data Pipeline": "n8n",
       "UI Components": "Shadcn UI + Recharts"
@@ -178,7 +179,7 @@ export const projects = [
     category: "Technical Account Manager",
     icon: FileText,
     image: forceheropreview,
-    tech: ["Project Management", "Stakeholder Engagement", "Technical Sales", "Pilot Strategy"],
+    tech: ["Technical Account Manager"],
     // Business Impact
     impact: ["Auxillary Police Force Management", "Technical Demonstrations (Pilot Phase)", "Client Engagement"],
     // Technical Architecture
@@ -197,7 +198,7 @@ export const projects = [
     category: "Automation",
     icon: FileText,
     image: n8nImage,
-    tech: ["n8n", "Data Automation", "Reporting", "API Integration"],
+    tech: ["n8n", "CRM Reporting", "Web Scraping"],
     // Business Impact
     impact: ["Reporting Automation", "3x/week", "Client Engagement"],
     // Technical Architecture
@@ -208,6 +209,23 @@ export const projects = [
     ],
     solution: "Engineered a flexible n8n automation framework that supports dynamic report templates and scheduled data aggregation, allowing for frequent requirement changes while maintaining operational efficiency.",
     gallery: [bitcoinImage1, bitcoinImage2, bitcoinImage3] // Placeholder images - replace with your actual engagement photos
+  },
+  {
+    id: 9,
+    title: "Asterisk VoIP Server",
+    description: "A secure, private telecommunications server designed to handle internal routing and automated attendance verification via SIP protocols.",
+    category: "VoIP Server",
+    icon: FileText,
+    image: asteriskImage,
+    tech: ["Asterisk", "Ubuntu Server", "Tailnet VPN"],
+    // Business Impact
+    impact: ["VoIP Server", "Tailnet VPN", "Reduce Cost"],
+    // Technical Architecture
+    // Challenge & Solution
+    challenge: [
+      "Every call has cost a for daily clocking",
+    ],
+    solution: "Host an SIP Server with SIP Clients"
   }
 ];
 

@@ -36,8 +36,10 @@ const PresentationMode = ({ onClose }) => {
     // Extend slides to include an Intro and Outro slide
     // FILTER: Only show specific projects for the presentation (IDs: 1, 2, 5)
     // You can add or remove IDs from this list [1, 2, 5] to control what shows up.
-    const selectedProjectIds = [4, 5, 7, 6, 8];
-    const presentationProjects = projects.filter(p => selectedProjectIds.includes(p.id));
+    const selectedProjectIds = [4, 8, 7, 9, 6, 5];
+    const presentationProjects = selectedProjectIds
+        .map(id => projects.find(p => p.id === id))
+        .filter(p => p !== undefined);
 
     const slides = [
         { type: 'intro', title: 'Internship Site Visit Presentation', subtitle: 'MUHAMMAD ANDRIAN NAZRIEL BIN KHAIRUL NAZMAN' },
@@ -453,7 +455,7 @@ const PresentationMode = ({ onClose }) => {
                             opacity: 0
                         }}>
                             <div style={{ fontSize: '0.75rem', fontFamily: 'monospace', color: '#a78bfa', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.2em', textAlign: 'center' }}>
-                                🛠️ Technical Ecosystem
+                                🛠️ ECOSYSTEM
                             </div>
                             <div style={{
                                 display: 'flex',
