@@ -1,29 +1,39 @@
-import { Code, Globe, BatteryCharging } from 'lucide-react';
+import React from 'react';
 
 const About = () => {
     const skills = [
-        { name: 'Frontend Dev', icon: <Code size={24} />, desc: 'React, Vite, CSS' },
-        { name: 'Web Design', icon: <Globe size={24} />, desc: 'Modern & Responsive' },
-        { name: 'Learning', icon: <BatteryCharging size={24} />, desc: 'Constantly Evolving' },
+        { name: 'Frontend Dev', desc: 'React, Vite, CSS' },
+        { name: 'Web Design', desc: 'Modern & Responsive' },
+        { name: 'Emerging Tech', desc: 'AI Agents & Automation' },
+        { name: 'Security', desc: 'Infrastructure & Auditing' },
     ];
 
     return (
-        <section id="about" className="section">
-            <div className="container">
-                <div className="glass-panel" style={{ padding: '4rem 2rem' }}>
-                    <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-                        <h2 style={{ textAlign: 'center' }}>About Me</h2>
-                        <p style={{ textAlign: 'center', color: 'var(--color-text-muted)', marginBottom: '3rem', fontSize: '1.1rem' }}>
-                            I am a passionate internship student looking to make my mark in the tech industry.
-                            Focusing on building clean, accessible, and performant web applications.
+        <section id="about" className="section bg-white">
+            <div className="row">
+                <div className="col-12 mb-md">
+                    <span className="tx-label clr-gray animate-reveal">About the Creator</span>
+                </div>
+            </div>
+
+            <div className="row">
+                <div className="col-24 col-12">
+                    <h2 className="tx-2xl animate-reveal" style={{ animationDelay: '0.1s' }}>
+                        Breaking Boundaries.<br />Building Foundations.
+                    </h2>
+                </div>
+
+                <div className="col-24 col-12">
+                    <div style={{ maxWidth: '600px', padding: '4rem 0' }}>
+                        <p className="tx-p animate-reveal" style={{ animationDelay: '0.2s', color: '#000', fontSize: '2.2rem', lineHeight: '1.2', fontWeight: 500 }}>
+                            I am a passionate developer focusing on building clean, accessible, and performant web applications. Currently pushing the limits of Agentic AI.
                         </p>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
-                            {skills.map((skill) => (
-                                <div key={skill.name} className="glass" style={{ padding: '2rem', borderRadius: '16px', textAlign: 'center' }}>
-                                    <div style={{ color: 'var(--color-primary)', marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>{skill.icon}</div>
-                                    <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>{skill.name}</h3>
-                                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>{skill.desc}</p>
+                        <div className="row mt-md" style={{ padding: 0 }}>
+                            {skills.map((skill, i) => (
+                                <div key={skill.name} className="col-12 mb-md animate-reveal" style={{ animationDelay: `${0.3 + i * 0.1}s` }}>
+                                    <h3 className="tx-sm" style={{ color: '#000' }}>{skill.name}</h3>
+                                    <p className="tx-p" style={{ color: 'var(--color-gray-700)', fontSize: '1.4rem' }}>{skill.desc}</p>
                                 </div>
                             ))}
                         </div>

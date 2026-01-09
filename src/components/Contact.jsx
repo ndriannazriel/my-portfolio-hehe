@@ -1,38 +1,43 @@
-import { Mail, Linkedin, Github } from 'lucide-react';
+import React from 'react';
 
 const Contact = () => {
     return (
-        <section id="contact" className="section" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center' }}>
-            <div className="container" style={{ textAlign: 'center' }}>
-                <h2 style={{ marginBottom: '1rem' }}>Let's Work Together</h2>
-                <p style={{ maxWidth: '500px', margin: '0 auto 3rem', color: 'var(--color-text-muted)' }}>
-                    Do reach out if you have any questions or want to collaborate on a project.
-                </p>
+        <section id="contact" className="section bg-black">
+            <div className="row">
+                <div className="col-12 mb-md">
+                    <span className="tx-label clr-gray animate-reveal">Get in touch</span>
+                </div>
+            </div>
 
-                <a href="mailto:placeholder@email.com" className="glass" style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '1rem',
-                    padding: '1.5rem 3rem',
-                    borderRadius: '50px',
-                    fontSize: '1.2rem',
-                    fontWeight: 600,
-                    marginBottom: '3rem',
-                    color: '#fff',
-                    background: 'var(--color-primary)'
-                }}>
-                    <Mail /> Say Hello
-                </a>
+            <div className="row">
+                <div className="col-24 col-12">
+                    <h2 className="tx-2xl animate-reveal" style={{ animationDelay: '0.1s' }}>
+                        Let's Create<br />Something Bold.
+                    </h2>
+                </div>
 
-                <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center' }}>
-                    <a href="#" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', color: 'var(--color-text-muted)' }}>
-                        <Linkedin size={24} />
-                        <span style={{ fontSize: '0.8rem' }}>LinkedIn</span>
-                    </a>
-                    <a href="#" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', color: 'var(--color-text-muted)' }}>
-                        <Github size={24} />
-                        <span style={{ fontSize: '0.8rem' }}>GitHub</span>
-                    </a>
+                <div className="col-24 col-12" style={{ display: 'flex', flexDirection: 'column', gap: '4rem', padding: '4rem 0' }}>
+                    <div className="animate-reveal" style={{ animationDelay: '0.2s' }}>
+                        <p className="tx-label clr-gray mb-md">Email</p>
+                        <a href="mailto:placeholder@email.com" className="tx-lg" style={{ borderBottom: '1px solid #fff', paddingBottom: '1rem' }}>
+                            sayhello@andrian.me
+                        </a>
+                    </div>
+
+                    <div className="animate-reveal" style={{ animationDelay: '0.3s' }}>
+                        <p className="tx-label clr-gray mb-md">Social</p>
+                        <div style={{ display: 'flex', gap: '3rem' }}>
+                            <a href="#" className="tx-md" style={{ borderBottom: '1px solid rgba(255,255,255,0.2)', paddingBottom: '0.5rem' }}>LinkedIn</a>
+                            <a href="#" className="tx-md" style={{ borderBottom: '1px solid rgba(255,255,255,0.2)', paddingBottom: '0.5rem' }}>GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Final branding footer-style section */}
+            <div className="row" style={{ marginTop: '12rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '4rem' }}>
+                <div className="col-24">
+                    <span className="tx-3xl clr-gray" style={{ opacity: 0.1 }}>ANDRIAN NAZRIEL</span>
                 </div>
             </div>
         </section>

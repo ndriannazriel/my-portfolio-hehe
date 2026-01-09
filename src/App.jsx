@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -6,13 +6,17 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import PresentationMode from './components/PresentationMode'
 import Background from './components/Background'
+import Loader from './components/Loader'
 
 
 function App() {
   const [showPresentation, setShowPresentation] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   return (
     <div className="app-container">
+      {loading && <Loader onComplete={() => setLoading(false)} />}
+
       {/* Animated Particles & Parallax Background */}
       <Background />
 
@@ -29,22 +33,24 @@ function App() {
         <Contact />
       </main>
 
-      <footer style={{ textAlign: 'center', padding: '2rem', opacity: 0.6, fontSize: '0.9rem' }}>
+      <footer style={{ textAlign: 'center', padding: '6rem 2rem', opacity: 0.6, fontSize: '1.2rem', fontFamily: 'var(--font-body)', color: 'var(--color-gray-700)' }}>
         <p>&copy; {new Date().getFullYear()} Andrian Nazriel. Built with React.</p>
         <button
           onClick={() => setShowPresentation(true)}
           style={{
-            marginTop: '1rem',
+            marginTop: '2rem',
             background: 'transparent',
-            border: '1px solid rgba(255,255,255,0.2)',
-            color: '#aaa',
-            padding: '0.5rem 1rem',
-            borderRadius: '20px',
+            border: '1px solid rgba(255,255,255,0.1)',
+            color: 'inherit',
+            padding: '0.8rem 1.6rem',
+            borderRadius: '2px',
             cursor: 'pointer',
-            fontSize: '0.8rem'
+            fontSize: '1rem',
+            textTransform: 'uppercase',
+            letterSpacing: '0.1em'
           }}
         >
-          Start Presentation Mode
+          Presentation Mode
         </button>
       </footer>
     </div>
