@@ -226,6 +226,23 @@ export const projects = [
       "Every call has cost a for daily clocking",
     ],
     solution: "Host an SIP Server with SIP Clients"
+  },
+  {
+    id: 10,
+    title: "Guard Automation for CMS",
+    description: "Recruitment automation for Sites that requests guards, daily clocking for guards, and attendance verification and people that want to apply as guards",
+    category: "Automation",
+    icon: FileText,
+    image: n8nImage,
+    tech: ["n8n", "WasapBot"],
+    // Business Impact
+    impact: ["CMS", "Guard Recruitment", "Reduce manual intervention"],
+    // Technical Architecture
+    // Challenge & Solution
+    challenge: [
+      "",
+    ],
+    solution: "Provide n8n forms site assignation, check-in, check-out, and application forms. "
   }
 ];
 
