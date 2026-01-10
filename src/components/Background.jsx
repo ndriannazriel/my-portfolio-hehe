@@ -10,8 +10,13 @@ const Background = () => {
                 width: '100%',
                 height: '100%',
                 zIndex: -50,
-                backgroundColor: '#000000', // Solid Black
-                transform: 'translateZ(0)', // Force GPU layer
+                backgroundImage: 'url("src/assets/bg.png")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundAttachment: 'fixed', // Fixed to viewport for continuity
+                backgroundColor: '#000000',
+                transform: 'translateZ(0)',
             }}
         >
             {/* Overlay to ensure text readability if the image is too bright, 

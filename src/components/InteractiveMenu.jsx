@@ -4,7 +4,6 @@ import projectsBg from '../assets/menu/projects_bg.png';
 import blogsBg from '../assets/menu/blogs_bg.png';
 import resumeBg from '../assets/menu/resume_bg.png';
 import connectBg from '../assets/menu/connect_bg.png';
-import defaultBg from '../assets/bg.png';
 
 const menuItems = [
     {
@@ -59,17 +58,9 @@ const InteractiveMenu = () => {
     };
 
     return (
-        <section className="interactive-menu">
-            {/* Background Container */}
+        <section className="interactive-menu" style={{ background: 'transparent' }}>
+            {/* Background Container for Hover states ONLY */}
             <div className="menu-bg-container">
-                {/* Default Hero Background */}
-                <img
-                    src={defaultBg}
-                    alt=""
-                    className={`menu-bg-image ${activeBg === null ? 'is-active' : ''}`}
-                    style={{ opacity: activeBg === null ? 0.3 : 0 }}
-                />
-
                 {menuItems.map((item) => (
                     <img
                         key={item.id}

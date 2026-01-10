@@ -352,12 +352,11 @@ main {
   width: 100%;
   height: 60vh;
   min-height: 480px;
-  background: var(--color-bg);
+  background: transparent;
   overflow: hidden;
   display: flex;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 
 .menu-bg-container {
   position: absolute;
@@ -404,13 +403,13 @@ main {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
   padding: 4rem 2rem;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   background: transparent;
 }
+
 
 .menu-item:last-child {
   border-right: none;
@@ -582,24 +581,7 @@ main {
   }
 }
 
-/* Hero Image Styles */
-.o-heroHome_image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.o-heroHome_image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .o-heroHome .tx-3xl {
-  color: #fff;
   z-index: 2;
   position: relative;
 }

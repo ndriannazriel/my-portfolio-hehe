@@ -6,12 +6,7 @@ const Hero = () => {
     const title = "ANDRIAN NAZRIEL";
 
     return (
-        <section className="o-heroHome">
-            {/* Background Image */}
-            <div className="o-heroHome_image">
-                <img src={heroBg} alt="Hero Background" />
-            </div>
-
+        <section className="o-heroHome" style={{ background: 'transparent' }}>
             <div className="o-heroHome_wrapper">
                 {/* Large Header with Staggered Letters */}
                 <div className="o-heroHome_largeHeader row">
