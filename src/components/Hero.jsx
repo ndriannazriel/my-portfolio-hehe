@@ -1,16 +1,15 @@
 import React from 'react';
 import { projects } from '../data/projects';
+import heroBg from '../assets/bg.png';
 
 const Hero = () => {
-    // Using a high-quality project image for the hero background
-    const heroImage = projects[0]?.image;
     const title = "ANDRIAN NAZRIEL";
 
     return (
         <section className="o-heroHome">
             {/* Background Image */}
             <div className="o-heroHome_image">
-                <img src={heroImage} alt="Hero Background" />
+                <img src={heroBg} alt="Hero Background" />
             </div>
 
             <div className="o-heroHome_wrapper">
