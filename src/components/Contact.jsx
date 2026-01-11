@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <section id="contact" className="section bg-black">
+        <section id="contact" className="section" style={{ background: 'transparent' }}>
             <div className="row">
                 <div className="col-12 mb-md">
                     <span className="tx-label clr-gray animate-reveal">Get in touch</span>
@@ -35,7 +35,7 @@ const Contact = () => {
             </div>
 
             {/* Final branding footer-style section */}
-            <div className="row" style={{ marginTop: '12rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '4rem' }}>
+            <div className="row" style={{ marginTop: '12rem', paddingTop: '4rem' }}>
                 <div className="col-24">
                     <span className="tx-3xl clr-gray" style={{ opacity: 0.1 }}>ANDRIAN NAZRIEL</span>
                 </div>

@@ -4,7 +4,7 @@ import { projects } from '../data/projects';
 
 const Projects = () => {
     return (
-        <section id="projects" className="section bg-black" style={{ paddingBottom: '15rem' }}>
+        <section id="projects" className="section" style={{ paddingBottom: '15rem', background: 'transparent' }}>
             <div className="row">
                 <div className="col-24 mb-md">
                     <span className="tx-label clr-gray animate-reveal">Project Ribbon</span>

@@ -8,11 +8,17 @@ import Contact from './components/Contact'
 import PresentationMode from './components/PresentationMode'
 import Background from './components/Background'
 import Loader from './components/Loader'
+import BlogSidebar from './components/BlogSidebar'
 
 
 function App() {
   const [showPresentation, setShowPresentation] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isBlogOpen, setIsBlogOpen] = useState(false);
+
+  const toggleBlog = () => {
+    setIsBlogOpen(!isBlogOpen);
+  };
 
   return (
     <div className="app-container">
@@ -26,7 +32,10 @@ function App() {
         <PresentationMode onClose={() => setShowPresentation(false)} />
       )}
 
-      <Navbar />
+      {/* Blog Sidebar */}
+      <BlogSidebar isOpen={isBlogOpen} onClose={() => setIsBlogOpen(false)} />
+
+      <Navbar onBlogToggle={toggleBlog} />
       <main>
         <Hero />
         <InteractiveMenu />

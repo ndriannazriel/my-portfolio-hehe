@@ -25,15 +25,15 @@ const About = () => {
 
                 <div className="col-24 col-12">
                     <div style={{ maxWidth: '600px', padding: '4rem 0' }}>
-                        <p className="tx-p animate-reveal" style={{ animationDelay: '0.2s', color: '#000', fontSize: '2.2rem', lineHeight: '1.2', fontWeight: 500 }}>
+                        <p className="tx-p animate-reveal" style={{ animationDelay: '0.2s', fontSize: '2.2rem', lineHeight: '1.2', fontWeight: 500 }}>
                             I am a passionate developer focusing on building clean, accessible, and performant web applications. Currently pushing the limits of Agentic AI.
                         </p>
 
                         <div className="row mt-md" style={{ padding: 0 }}>
                             {skills.map((skill, i) => (
                                 <div key={skill.name} className="col-12 mb-md animate-reveal" style={{ animationDelay: `${0.3 + i * 0.1}s` }}>
-                                    <h3 className="tx-sm" style={{ color: '#000' }}>{skill.name}</h3>
-                                    <p className="tx-p" style={{ color: 'var(--color-gray-700)', fontSize: '1.4rem' }}>{skill.desc}</p>
+                                    <h3 className="tx-sm">{skill.name}</h3>
+                                    <p className="tx-p" style={{ fontSize: '1.4rem' }}>{skill.desc}</p>
                                 </div>
                             ))}
                         </div>

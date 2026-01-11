@@ -1,4 +1,5 @@
 import React from 'react';
+import bgImage from '../assets/bg.png';
 
 const Background = () => {
     return (
@@ -10,13 +11,13 @@ const Background = () => {
                 width: '100%',
                 height: '100%',
                 zIndex: -50,
-                backgroundImage: 'url("src/assets/bg.png")',
+                backgroundImage: `url(${bgImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 backgroundAttachment: 'fixed', // Fixed to viewport for continuity
                 backgroundColor: '#000000',
-                transform: 'translateZ(0)',
+                transform: 'translateZ(0)', // Force GPU layer
             }}
         >
             {/* Overlay to ensure text readability if the image is too bright, 
