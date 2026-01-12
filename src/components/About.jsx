@@ -25,8 +25,8 @@ const About = () => {
 
                 <div className="col-24 col-12">
                     <div style={{ maxWidth: '600px', padding: '4rem 0' }}>
-                        <p className="tx-p animate-reveal" style={{ animationDelay: '0.2s', fontSize: '2.2rem', lineHeight: '1.2', fontWeight: 500 }}>
-                            I am a passionate developer focusing on building clean, accessible, and performant web applications. Currently pushing the limits of Agentic AI.
+                        <p className="tx-p animate-reveal" style={{ animationDelay: '0.2s', fontSize: '2.2rem', lineHeight: '1.2', fontWeight: 500, color: 'black' }}>
+                            I am a passionate person focusing on gaining various knowledge about Tech, AI, Network and Cyber Security with the goal of entering the cybersecurity world.
                         </p>
 
                         <div className="row mt-md" style={{ padding: 0 }}>
