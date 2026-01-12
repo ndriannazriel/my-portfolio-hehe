@@ -531,6 +531,29 @@ main {
   transform: translateY(0);
 }
 
+/* Menu Item Placeholder Text */
+.menu-item-placeholder {
+  position: absolute;
+  right: 3.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-gray-700);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.4s ease, color 0.4s ease;
+  white-space: nowrap;
+}
+
+.menu-item:hover .menu-item-placeholder {
+  opacity: 0.6;
+  color: var(--color-gray-400);
+}
+
 @media (max-width: 768px) {
   .interactive-menu {
     flex-direction: column;

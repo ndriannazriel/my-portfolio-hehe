@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import projectsBg from '../assets/menu/projects_bg.png';
-import blogsBg from '../assets/menu/blogs_bg.png';
-import resumeBg from '../assets/menu/resume_bg.png';
-import connectBg from '../assets/menu/connect_bg.png';
+import projectsBg from '../assets/menu/projectsbandw.jpg';
+import blogsBg from '../assets/menu/blogbackground.jpg';
+import resumeBg from '../assets/menu/resumebg.jpeg';
+import connectBg from '../assets/menu/connectbg.jpg';
 
 const menuItems = [
     {
@@ -75,11 +75,11 @@ const InteractiveMenu = () => {
             <div className="menu-intro">
                 <div className="menu-intro_wrapper">
                     <h3 className="menu-intro_title">
-                        A MULTIDISCIPLINARY DESIGNER & FULL-STACK ENGINEER.<br />
-                        CRAFTING HIGH-IMPACT DIGITAL EXPERIENCES.
+                        A STUDENT WITH THE DESIRE & WILL TO BE BETTER.<br />
+                        APPROACHING EACH STEP WITH THE SAME PASSION, DESIRE & ENERGY AS THE FIRST.
                     </h3>
                     <p className="menu-intro_description">
-                        My expertise spans across four complementary pillars, delivering end-to-end solutions that merge technical precision with aesthetic excellence, tailored to the unique demands of every project.
+                        
                     </p>
                 </div>
             </div>
@@ -113,6 +113,16 @@ const InteractiveMenu = () => {
                                 </motion.h2>
                             </div>
                         </div>
+
+                        {/* Right Side Text Placeholder */}
+                        <motion.span
+                            className="menu-item-placeholder"
+                            initial={{ opacity: 0, x: 20 }}
+                            whileHover={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.4, ease: "easeOut" }}
+                        >
+                            {item.label}
+                        </motion.span>
                     </motion.a>
                 ))}
             </div>
