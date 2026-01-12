@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { blogs } from '../data/blogs';
 
 const BlogSidebar = ({ isOpen, onClose }) => {
     const [hoveredBlog, setHoveredBlog] = useState(null);
+    const navigate = useNavigate();
 
     return (
         <>
@@ -120,7 +122,10 @@ const BlogSidebar = ({ isOpen, onClose }) => {
                                 transition={{ delay: index * 0.1 }}
                                 onHoverStart={() => setHoveredBlog(blog.id)}
                                 onHoverEnd={() => setHoveredBlog(null)}
-                                onClick={() => window.location.href = `/blog/${blog.id}`}
+                                onClick={() => {
+                                    navigate(`/blog/${blog.id}`);
+                                    onClose();
+                                }}
                                 style={{
                                     padding: '2rem',
                                     background: hoveredBlog === blog.id ? 'rgba(255, 255, 255, 0.05)' : 'transparent',
