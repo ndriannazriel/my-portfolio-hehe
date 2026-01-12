@@ -15,7 +15,7 @@ const Projects = () => {
 
             <div className="row mt-md">
                 <div className="col-24" style={{ textAlign: 'center', marginTop: '8rem' }}>
-                    <a href="https://github.com/ndriannazriel" target="_blank" rel="noopener noreferrer" className="tx-label" style={{ borderBottom: '1px solid #fff', paddingBottom: '0.5rem' }}>
+                    <a href="https://github.com/ndriannazriel" target="_blank" rel="noopener noreferrer" className="tx-label" style={{ paddingBottom: '0.5rem', color: '#fff' }}>
                         View All on GitHub
                     </a>
                 </div>

@@ -75,7 +75,7 @@ const InteractiveMenu = () => {
             <div className="menu-intro">
                 <div className="menu-intro_wrapper">
                     <h3 className="menu-intro_title">
-                        A STUDENT WITH THE DESIRE & WILL TO BE BETTER.<br />
+                        SOMEONE WITH THE DESIRE & WILL TO BE BETTER.<br />
                         APPROACHING EACH STEP WITH THE SAME PASSION, DESIRE & ENERGY AS THE FIRST.
                     </h3>
                     <p className="menu-intro_description">
@@ -115,14 +115,9 @@ const InteractiveMenu = () => {
                         </div>
 
                         {/* Right Side Text Placeholder */}
-                        <motion.span
-                            className="menu-item-placeholder"
-                            initial={{ opacity: 0, x: 20 }}
-                            whileHover={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.4, ease: "easeOut" }}
-                        >
+                        <span className="menu-item-placeholder">
                             {item.label}
-                        </motion.span>
+                        </span>
                     </motion.a>
                 ))}
             </div>

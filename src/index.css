@@ -434,6 +434,7 @@ main {
   flex-direction: column;
   width: 100%;
   height: 100%;
+  overflow: visible;
 }
 
 .menu-grid:hover .menu-item {
@@ -456,7 +457,7 @@ main {
   text-decoration: none;
   padding: 1.5rem 3.5rem;
   /* Small controlled padding */
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   cursor: pointer;
   background: transparent;
@@ -534,24 +535,26 @@ main {
 /* Menu Item Placeholder Text */
 .menu-item-placeholder {
   position: absolute;
-  right: 3.5rem;
+  right: 5rem;
   top: 50%;
   transform: translateY(-50%);
   font-family: var(--font-body);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--color-gray-700);
-  opacity: 0;
+  color: #ffffff;
+  opacity: 0.3;
   pointer-events: none;
-  z-index: 2;
-  transition: opacity 0.4s ease, color 0.4s ease;
+  z-index: 100;
   white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
 .menu-item:hover .menu-item-placeholder {
-  opacity: 0.6;
-  color: var(--color-gray-400);
+  opacity: 1;
+  right: 4rem;
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
